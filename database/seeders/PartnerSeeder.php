@@ -26,9 +26,9 @@ class PartnerSeeder extends Seeder
                 'event' => $item['event'] ?? null,
             ]);
 
-            echo "✅ Added partner: {$item['name']}\n";
+            echo "Added partner: {$item['name']}\n";
         }
 
-        echo "🎉 Seeder Partner hoàn tất!\n";
+        echo "Seeder Partner hoàn tất!\n";
     }
 }

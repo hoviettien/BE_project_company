@@ -33,13 +33,13 @@ class StartupSeeder extends Seeder
                     ]);
                     $startup['logo'] = $uploaded['secure_url'];
 
-                    echo "✅ Uploaded: {$startup['name']} → {$startup['logo']}\n";
+                    echo "Uploaded: {$startup['name']} → {$startup['logo']}\n";
                 } catch (\Exception $e) {
-                    echo "⚠️ Upload failed: {$startup['name']} ({$e->getMessage()})\n";
+                    echo "Upload failed: {$startup['name']} ({$e->getMessage()})\n";
                 }
             }
 
-            // Cập nhật hoặc tạo mới
+            
             Startup::updateOrCreate(
                 ['name' => $startup['name']],
                 $startup
@@ -47,6 +47,6 @@ class StartupSeeder extends Seeder
         }
 
 
-        echo "🎉 Seeder Startup hoàn tất!\n";
+        echo "Seeder Startup hoàn tất!\n";
     }
 }

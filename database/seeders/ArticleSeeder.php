@@ -22,16 +22,16 @@ class ArticleSeeder extends Seeder
                 'published_at' => $item['date'] ?? null,
                 'category' => $item['category'] ?? null,
                 'event' => $item['event'] ?? null,
-                'image' => $item['image'] ?? null, // thêm link Cloudinary ở đây
+                'image' => $item['image'] ?? null, 
                 'images' => isset($item['images']) ? json_encode($item['images']) : null,
             ];
             Article::create($article);
 
 
 
-            echo "✅ Added article: {$article['title']}\n";
+            echo "Added article: {$article['title']}\n";
         }
 
-        echo "🎉 Seeder Article hoàn tất!\n";
+        echo "Seeder Article hoàn tất!\n";
     }
 }
