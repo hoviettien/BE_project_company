@@ -154,3 +154,43 @@ Dùng MySQL cho dữ liệu có cấu trúc/quan hệ.
 Dùng Weaviate cho tìm kiếm ngữ nghĩa và dữ liệu vector.
 
 Khi thêm dữ liệu mới (ví dụ: một bài viết), hãy lưu vào MySQL và đồng thời index vector trong Weaviate.
+
+# # 🚀 Frontend Project
+
+Dự án frontend được xây dựng bằng **React 18** ⚛ kết hợp với **TypeScript** 🟦 để tăng tính an toàn khi code,  
+**Tailwind CSS** 🎨 cho việc styling nhanh chóng và responsive,  
+**Lucide React** ✨ để hiển thị icon,  
+và **Vite** ⚡ làm công cụ build cũng như dev server.  
+
+---
+
+## 📂 Cấu trúc thư mục
+- **public/** 📁: Chứa các file build cuối cùng (CSS, JS, ảnh…).  
+- **resources/css/** 🎨: Quản lý file CSS hoặc Tailwind.  
+- **resources/js/** ⚛: Lưu code React/TypeScript trong quá trình phát triển.  
+- **resources/views/** 📑: Blade templates khi cần render giao diện trong Laravel.  
+
+---
+
+## 🛠 Cài đặt & chạy dự án
+1. Clone dự án về máy  
+   `git clone <repository-url>`  
+   `cd <project-folder>`  
+
+2. Cài dependencies  
+   `npm install`  
+
+3. Chạy ở chế độ development  
+   `npm run dev`  
+   👉 Ứng dụng chạy tại [http://localhost:5173](http://localhost:5173) 🌐  
+
+4. Build cho production  
+   `npm run build`  
+   📦 Kết quả sẽ nằm trong thư mục **dist/**, sẵn sàng deploy.  
+
+---
+
+## 💡 Ghi chú thêm
+- Có thể cài **ESLint** 🧹 và **Prettier** ✨ để đảm bảo code style đồng bộ.  
+- Tài liệu tham khảo:  
+  [React](https://react.dev/) | [TypeScript](https://www.typescriptlang.org/docs/) | [Tailwind CSS](https://tailwindcss.com/docs) | [Lucide Icons](https://lucide.dev/) | [Vite](https://vitejs.dev/)  
