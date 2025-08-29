@@ -14,7 +14,7 @@ class ArticleImage extends Model
         'url',
     ];
 
-    // Quan hệ ngược lại: Mỗi ảnh thuộc về một article
+    
     public function article()
     {
         return $this->belongsTo(Article::class);

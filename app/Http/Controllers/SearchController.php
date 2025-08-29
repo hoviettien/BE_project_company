@@ -10,7 +10,6 @@ use App\Models\Article;
 
 class SearchController extends Controller
 {
-    // Hàm bỏ dấu tiếng Việt
     private function removeAccents($str)
     {
         $str = strtolower($str);
@@ -33,22 +32,18 @@ class SearchController extends Controller
     {
         $query = $request->input('q');
 
-        // Search speakers
         $speakers = Speaker::where('name', 'LIKE', "%$query%")
             ->orWhere('title', 'LIKE', "%$query%")
             ->orWhere('organization', 'LIKE', "%$query%")
             ->get();
 
-        // Search events
         $events = Event::where('title', 'LIKE', "%$query%")
             ->orWhere('description', 'LIKE', "%$query%")
             ->get();
 
-        // Search partners
         $partners = Partner::where('name', 'LIKE', "%$query%")
             ->get();
 
-        // Search articles
         $articles = Article::where('title', 'LIKE', "%$query%")
             ->orWhere('content', 'LIKE', "%$query%")
             ->get();

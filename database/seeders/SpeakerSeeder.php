@@ -32,9 +32,9 @@ class SpeakerSeeder extends Seeder
                     ]);
                     $speaker['image_url'] = $uploaded['secure_url'];
 
-                    echo "✅ Uploaded: {$speaker['name']} → {$speaker['image_url']}\n";
+                    echo "Uploaded: {$speaker['name']} → {$speaker['image_url']}\n";
                 } catch (\Exception $e) {
-                    echo "⚠️ Upload failed: {$speaker['name']} ({$e->getMessage()})\n";
+                    echo "Upload failed: {$speaker['name']} ({$e->getMessage()})\n";
                 }
 
             }
@@ -42,6 +42,6 @@ class SpeakerSeeder extends Seeder
             Speaker::create($speaker);
         }
 
-        echo "🎉 Seeder hoàn tất!\n";
+        echo "Seeder hoàn tất!\n";
     }
 }

@@ -18,7 +18,6 @@ class SpeakerController extends Controller
     {
         $data = $request->all();
 
-        // Nếu người dùng upload file ảnh
         if ($request->hasFile('image')) {
             $uploaded = Cloudinary::upload(
                 $request->file('image')->getRealPath(),
@@ -41,7 +40,6 @@ class SpeakerController extends Controller
         $speaker = Speaker::findOrFail($id);
         $data = $request->all();
 
-        // Nếu update có ảnh mới
         if ($request->hasFile('image')) {
             $uploaded = Cloudinary::upload(
                 $request->file('image')->getRealPath(),
