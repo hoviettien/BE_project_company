@@ -93,3 +93,64 @@ Bước 3: Tạo workflow trong n8n
 - Trong node Vector Store (Weaviate):
 - Liên kết với tài khoản Weaviate đã tạo ở bước 1.
 - Trong phần Embedding Model, chọn: models/embedding-001
+
+# Database
+1. Cài đặt MySQL
+# Cài đặt
+- Option 1: Install [MySQL Community Server](https://dev.mysql.com/downloads/).  
+- Option 2: Use Docker:
+  ```bash
+  docker run --name mysql-db     -e MYSQL_ROOT_PASSWORD=123456     -e MYSQL_DATABASE=project_db     -p 3306:3306     -d mysql:8.0
+  ```
+
+<!-- cấu hình kết nối-->
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=123456
+DB_NAME=project_db
+
+<!-- Khởi tạo CSDL (Chạy migration hoặc script SQL:) -->
+mysql -u root -p project_db < db/migrations/init.sql
+
+
+2. Cài đặt Weaviate
+version: '3.4'
+services:
+  weaviate:
+    image: semitechnologies/weaviate:latest
+    ports:
+      - "8080:8080"
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: './data'
+
+<!-- Khởi động Weaviate: -->
+docker-compose up -d
+
+<!-- Kiểm tra Weaviate -->
+
+Mở http://localhost:8080/v1/graphql
+ trong trình duyệt.
+Thử một truy vấn GraphQL:
+
+{
+  Get {
+    Article {
+      title
+      url
+    }
+  }
+}
+
+<!-- Cấu hình kết nối (Thêm vào file .env:) -->
+WEAVIATE_HOST=http://localhost:8080
+
+3. Ghi chú sử dụng
+
+Dùng MySQL cho dữ liệu có cấu trúc/quan hệ.
+
+Dùng Weaviate cho tìm kiếm ngữ nghĩa và dữ liệu vector.
+
+Khi thêm dữ liệu mới (ví dụ: một bài viết), hãy lưu vào MySQL và đồng thời index vector trong Weaviate.
